@@ -1,8 +1,9 @@
 package mediaDB;
 
+
 import uploaderDB.Uploader;
 
-import java.io.Serializable;
+
 import java.util.Collection;
 
 
@@ -15,6 +16,7 @@ public class AudioImpl extends MediaContentImpl implements Audio {
         super(uploader, address, tags, bitrate, length);
         this.samplingRate = samplingRate;
         this.encoding = encoding;
+
     }
 
 
@@ -30,8 +32,10 @@ public class AudioImpl extends MediaContentImpl implements Audio {
 
     @Override
     public String toString() {
-        return "Audio content: "  + super.toString()+
+        return "Audio content: " + super.toString() +
                 ", samplingRate: " + samplingRate +
-                ", encoding: " + encoding ;
+                ", encoding: " + encoding;
     }
+
+
 }

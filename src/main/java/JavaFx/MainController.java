@@ -1,5 +1,6 @@
 package JavaFx;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -7,13 +8,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import management.HeadQuarter;
 import mediaDB.Content;
+import mediaDB.ContentImpl;
 import mediaDB.Tag;
 import sun.rmi.rmic.iiop.InterfaceType;
 import uploaderDB.Uploader;
 import uploaderDB.UploaderImpl;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Optional;
 
 public class MainController {
@@ -63,16 +64,20 @@ public class MainController {
     @FXML
     private Button deleteUploaderButton;
 
+    @FXML
+    private Button deleteContentButton;
+
     private HeadQuarter headQuarter;
     private Main main;
 
     private ObservableList<Content> observableContentList;
     private ObservableList<Uploader> observableUploaderList;
+    private ObservableList<ContentImpl> observableContentImplList;
 
     @FXML
     private void initialize() {
         addressColumn.setCellValueFactory(new PropertyValueFactory<Content, String>("address"));
-        tagsColumn.setCellValueFactory(new PropertyValueFactory<Content, Enum>("tag"));
+        tagsColumn.setCellValueFactory(new PropertyValueFactory<Content, Tag>("tags"));
         widthColumn.setCellValueFactory(new PropertyValueFactory<Content, Integer>("width"));
         heightColumn.setCellValueFactory(new PropertyValueFactory<Content, Integer>("height"));
         samplingRateColumn.setCellValueFactory(new PropertyValueFactory<Content, Integer>("samplingRate"));
@@ -97,8 +102,10 @@ public class MainController {
         headQuarter.addUploader(new UploaderImpl("Paul"));
         headQuarter.addUploader(new UploaderImpl("Julius"));
         ArrayList<Tag> tags = new ArrayList<>();
+        tags.add(Tag.News);
         new ContentViewModel(observableContentList, headQuarter.getMediaManager());
         headQuarter.addAudioContent(headQuarter.getUploader("Julius"), 3445, "ddfg", 345, 345, "sdfdfs", tags);
+
 
     }
 
@@ -112,13 +119,28 @@ public class MainController {
         String uploader = uploaderTableView.getSelectionModel().getSelectedItem().toString();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(null);
-        alert.setHeaderText("Are you want to delete the uploader" + uploader + " ?");
+        alert.setHeaderText("Are you want to delete the uploader " + uploader + " ?");
         alert.setContentText(null);
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
             alert.close();
             main.getEventHandler().sendDeleteUploaderEvent(uploader);
+        } else {
+            alert.close();
+        }
+    }
+    @FXML
+    private void onDeleteContentButton(){
+        Content content = mediaDBView.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(null);
+        alert.setHeaderText("Are you want to delete this content for the uploader" + content.getUploader().getName() + " ?");
+        alert.setContentText(null);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            alert.close();
+            main.getEventHandler().sendDeleteContentEvent(content);
         } else {
             alert.close();
         }

@@ -144,15 +144,27 @@ public class EventManager {
                 sendUploaderList(getUploaderList());
             }
         });
+        eventHandler.registerDeleteContentFXEvent(new IDeleteContentEventFX() {
+            @Override
+            public void onDeleteContentEventFX(DeleteContentEventFXImpl deleteContentEventFX) {
+                if (deleteContentFX(deleteContentEventFX.getContent())) {
+                    sendAnswerRequestEvent(true);
+                } else {
+                    sendAnswerRequestEvent(false);
+                }
+            }
+        });
     }
 
     private void sendUploaderList(List<Uploader> uploaderList) {
         sendUploaderListEvent.onSendUploaderListEvent(new SendUploaderListEventImpl(uploaderList));
     }
-    public void registerSendUploaderListEvent(ISendUploaderListEvent sendUploaderListEvent){
+
+    public void registerSendUploaderListEvent(ISendUploaderListEvent sendUploaderListEvent) {
         this.sendUploaderListEvent = sendUploaderListEvent;
     }
-    private List<Uploader> getUploaderList(){
+
+    private List<Uploader> getUploaderList() {
         return headQuarter.getUploaderList();
     }
 
@@ -195,6 +207,10 @@ public class EventManager {
 
     public void registerGetAmountOfContentRequestHandler(IGetAmountOfUploadsAnswerEvent getAmountOfUploadsAnswerEvent) {
         this.getAmountOfUploadsAnswerEvent = getAmountOfUploadsAnswerEvent;
+    }
+
+    private boolean deleteContentFX(Content content) {
+        return headQuarter.deleteContent(content);
     }
 
     private void sendContentTypesEvent(List<?> contentList) {

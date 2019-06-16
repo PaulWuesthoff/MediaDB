@@ -8,11 +8,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFx.MainController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFx.MainController">
    <children>
-      <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="600.0" prefWidth="1080.0">
+      <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="600.0" prefWidth="1101.0">
          <children>
-            <TableView fx:id="mediaDBView" layoutX="103.0" layoutY="1.0" prefHeight="460.0" prefWidth="977.0">
+            <TableView fx:id="mediaDBView" layoutX="103.0" layoutY="1.0" prefHeight="460.0" prefWidth="998.0">
               <columns>
                 <TableColumn fx:id="contentColumn" prefWidth="100.0" text="Content Type" />
                   <TableColumn fx:id="samplingRateColumn" prefWidth="113.22212219238281" text="Sampling Rate" />
@@ -34,6 +34,7 @@
             <Button fx:id="AddUploaderViewButton" layoutX="41.0" layoutY="505.0" mnemonicParsing="false" onAction="#onAddUploader" prefHeight="50.0" prefWidth="123.0" text="Add Uploader" />
             <Button fx:id="deleteUploaderButton" layoutX="185.0" layoutY="505.0" mnemonicParsing="false" onAction="#onDeleteUploaderButton" prefHeight="50.0" prefWidth="123.0" text="Delete Uploader" />
             <Button fx:id="addContentViewButton" layoutX="327.0" layoutY="505.0" mnemonicParsing="false" onAction="#onAddContentViewButton" prefHeight="50.0" prefWidth="123.0" text="Add Content" />
+            <Button fx:id="deleteContentButton" layoutX="468.0" layoutY="505.0" mnemonicParsing="false" onAction="#onDeleteContentButton" prefHeight="50.0" prefWidth="123.0" text="Delete Content" />
          </children></AnchorPane>
    </children>
 </AnchorPane>

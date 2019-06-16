@@ -3,6 +3,7 @@ package eventBasedCli;
 import eventBasedCli.events.*;
 import management.EventManager;
 import management.HeadQuarter;
+import mediaDB.Content;
 import mediaDB.Tag;
 import uploaderDB.Uploader;
 
@@ -30,6 +31,7 @@ public class EventHandler {
     private IGetAddressAndDateEvent getAddressAndDateEvent;
     private IDeleteContentEvent deleteContentEvent;
     private IRequestUploaderList requestUploaderList;
+    private IDeleteContentEventFX deleteContentEventFX;
 
 
     public void linkToEventManager(EventManager eventManager) {
@@ -132,6 +134,12 @@ public class EventHandler {
 
     public void registerAddUploaderEvent(IAddUploaderEvent addUploaderEvent) {
         this.addUploaderEvent = addUploaderEvent;
+    }
+    public void registerDeleteContentFXEvent(IDeleteContentEventFX deleteContentEventFX){
+        this.deleteContentEventFX = deleteContentEventFX;
+    }
+    public void sendDeleteContentEvent(Content content){
+        deleteContentEventFX.onDeleteContentEventFX(new DeleteContentEventFXImpl(content));
     }
 
     public void registerDeleteUploaderEvent(IDeleteUploaderEvent deleteUploaderEvent) {

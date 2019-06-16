@@ -3,8 +3,6 @@ package mediaDB;
 import uploaderDB.Uploader;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -41,6 +39,7 @@ public class ContentImpl implements Content, Serializable {
     public Date getTimestamp() {
         return timestamp;
     }
+
 
     @Override
     public String toString(){
