@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFx.MainController">
+   <children>
+      <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="600.0" prefWidth="1080.0">
+         <children>
+            <TableView fx:id="mediaDBView" layoutX="103.0" layoutY="1.0" prefHeight="460.0" prefWidth="977.0">
+              <columns>
+                <TableColumn fx:id="contentColumn" prefWidth="100.0" text="Content Type" />
+                  <TableColumn fx:id="samplingRateColumn" prefWidth="113.22212219238281" text="Sampling Rate" />
+                  <TableColumn fx:id="encodingColumn" prefWidth="119.92572021484375" text="Encoding" />
+                  <TableColumn fx:id="bitrateColumn" prefWidth="111.0743408203125" text="Bitrate" />
+                  <TableColumn fx:id="lengthColumn" prefWidth="101.33352661132812" text="Length" />
+                  <TableColumn fx:id="addressColumn" prefWidth="94.0" text="Address" />
+                  <TableColumn fx:id="tagsColumn" prefWidth="100.99993896484375" text="Tags" />
+                  <TableColumn fx:id="widthColumn" prefWidth="97.70587158203125" text="Width" />
+                  <TableColumn fx:id="heightColumn" prefWidth="79.666748046875" text="Height" />
+                  <TableColumn fx:id="holderColumn" prefWidth="95.3331298828125" text="Holder" />
+              </columns>
+            </TableView>
+            <TableView fx:id="uploaderTableView" layoutX="1.0" layoutY="1.0" prefHeight="460.0" prefWidth="101.0">
+              <columns>
+                <TableColumn fx:id="uploaderColumn" prefWidth="98.0290036201477" text="Uploader" />
+              </columns>
+            </TableView>
+            <Button fx:id="AddUploaderViewButton" layoutX="41.0" layoutY="505.0" mnemonicParsing="false" onAction="#onAddUploader" prefHeight="50.0" prefWidth="123.0" text="Add Uploader" />
+            <Button fx:id="deleteUploaderButton" layoutX="185.0" layoutY="505.0" mnemonicParsing="false" onAction="#onDeleteUploaderButton" prefHeight="50.0" prefWidth="123.0" text="Delete Uploader" />
+            <Button fx:id="addContentViewButton" layoutX="327.0" layoutY="505.0" mnemonicParsing="false" onAction="#onAddContentViewButton" prefHeight="50.0" prefWidth="123.0" text="Add Content" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
