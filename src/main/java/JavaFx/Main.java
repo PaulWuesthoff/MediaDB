@@ -23,7 +23,7 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         Main main = new Main();
-        //main.launchCLI();
+       // main.launchCLI();
         launch(args);
     }
 
@@ -90,7 +90,7 @@ public class Main extends Application {
         }
     }
 
-    @Override
+    //@Override
     public void start(Stage primaryStage) throws Exception {
         headQuarter = eventManager.getHeadQuarter();
         showMainWindow(primaryStage);
@@ -111,4 +111,5 @@ public class Main extends Application {
     public EventManager getEventManager() {
         return eventManager;
     }
+
 }

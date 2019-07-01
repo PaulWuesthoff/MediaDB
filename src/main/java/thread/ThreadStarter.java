@@ -6,8 +6,10 @@ public class ThreadStarter {
         StorageThread storageThread = new StorageThread(threadHandler);
         StorageThread2 storageThread2 = new StorageThread2(threadHandler);
 
+
         storageThread.start();
         storageThread2.start();
+
 
         try {
             storageThread.join();
@@ -16,5 +18,13 @@ public class ThreadStarter {
             e.printStackTrace();
         }
        System.exit(0);
-    }
+//        while (true){
+//            threadHandler.store();
+//            threadHandler.store();
+//            threadHandler.moveContentToNextDatabase();
+//            threadHandler.moveContentToNextDatabase();
+//        }
+
+   }
+
 }

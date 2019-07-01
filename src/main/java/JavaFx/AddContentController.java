@@ -12,7 +12,6 @@ import uploaderDB.Uploader;
 
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Optional;
 
 public class AddContentController {
@@ -102,8 +101,6 @@ public class AddContentController {
         if (result.get() == ButtonType.OK) {
             alert.close();
             main.closeAddContentWindow();
-        } else {
-
         }
 
     }
@@ -168,6 +165,7 @@ public class AddContentController {
                 break;
             }
         }
+        main.closeAddContentWindow();
 
     }
 

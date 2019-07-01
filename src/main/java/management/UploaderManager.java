@@ -36,7 +36,6 @@ public class UploaderManager implements Serializable {
 
     public void notifyObservers() {
         for (IObserver o : observables) {
-            System.out.println("dsa");
             o.update();
         }
     }

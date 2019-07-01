@@ -13,8 +13,8 @@ import java.util.List;
 
 
 public class HeadQuarter implements IObservable {
-    public MediaManager mediaManager;
-    public UploaderManager uploaderManager;
+    private MediaManager mediaManager;
+    private UploaderManager uploaderManager;
 
     private List<IObserver> observers;
 
@@ -38,12 +38,11 @@ public class HeadQuarter implements IObservable {
     }
 
     public boolean deleteUploader(Uploader uploader) {
-        if(mediaManager.getAmountOfUploadsForOneUploader(uploader) == 0){
+        if (mediaManager.getAmountOfUploadsForOneUploader(uploader) == 0) {
             return uploaderManager.deleteUploader(uploader);
-        }
-      else {
-          notifyObservers();
-          return uploaderManager.deleteUploader(uploader) && mediaManager.deleteContentForOneUploader(uploader);
+        } else {
+            notifyObservers();
+            return uploaderManager.deleteUploader(uploader) && mediaManager.deleteContentForOneUploader(uploader);
         }
     }
 
@@ -60,7 +59,8 @@ public class HeadQuarter implements IObservable {
     public boolean addUploader(Uploader uploader) {
         return uploaderManager.addUploader(uploader);
     }
-    public boolean addMediaContent(Content content){
+
+    public boolean addMediaContent(Content content) {
         return mediaManager.addContent(content);
     }
 
@@ -176,10 +176,11 @@ public class HeadQuarter implements IObservable {
         return mediaManager.addContent(licensedAudioVideoImp);
     }
 
-    public List<Content> getContentByName(Class c){
+    public List<Content> getContentByName(Class c) {
         return mediaManager.getContentsByInterfaceType(c);
     }
-    public int getAmountOfUploadsForOneUploader(Uploader uploader){
+
+    public int getAmountOfUploadsForOneUploader(Uploader uploader) {
         return mediaManager.getAmountOfUploadsForOneUploader(uploader);
     }
 
@@ -187,25 +188,17 @@ public class HeadQuarter implements IObservable {
         return mediaManager.printList();
     }
 
-    public String getAddress(Content content){
+    public String getAddress(Content content) {
         return mediaManager.getAddress(content);
     }
-    public String getTimestamp (Content content){
+
+    public String getTimestamp(Content content) {
         return mediaManager.getTimestamp(content);
     }
 
-    public Content getOldestContent(){
-        for(Content content : mediaManager.getContentList()){
-            for(int i = 0; i<mediaManager.getContentList().size(); i++){
-                if(content.getTimestamp().compareTo(mediaManager.getContentList().get(i).getTimestamp())<0 ){
-                    return content;
-                }
-            }
-        }
-        return null;
+    public Content getOldestContent() {
+        return mediaManager.getOldestContent();
     }
-
-
 
 
     @Override
@@ -243,7 +236,8 @@ public class HeadQuarter implements IObservable {
     public List<Uploader> getUploaderList() {
         return uploaderManager.getUploaderList();
     }
-    public UploaderManager getUploaderManager(){
+
+    public UploaderManager getUploaderManager() {
         return uploaderManager;
     }
 
@@ -259,7 +253,7 @@ public class HeadQuarter implements IObservable {
 //        hd.add(Tag.Animal);
         System.out.println(headQuarter.addUploader(new UploaderImpl("Paul")));
 //        System.out.println(headQuarter.deleteUploader(headQuarter.getUploader("Paul")));
-          System.out.println(headQuarter.addAudioContent(headQuarter.getUploader("Paul"), 34, "MP8", 34674, 98854, "Database.xx", tags));
+        System.out.println(headQuarter.addAudioContent(headQuarter.getUploader("Paul"), 34, "MP8", 34674, 98854, "Database.xx", tags));
         headQuarter.addAudioVideoContent(headQuarter.getUploader("Paul"), "Jojo", tags, 34, 343, 23, "lol", 2, 4);
 //        headQuarter.addLicensedAudio(headQuarter.getUploader("Paul"), "Hah", tags, 32, 4232, 534, "Encoding", "Me");
 //        headQuarter.addLicensedAudioVideo(headQuarter.getUploader("Paul"), "Ja", hd, 23, 43453, 2, 4, 3, "sdf", "You");

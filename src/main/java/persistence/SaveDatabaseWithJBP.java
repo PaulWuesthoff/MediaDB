@@ -13,16 +13,16 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class SaveDatabaseWithJBP {
+private static HeadQuarter headQuarter = new HeadQuarter();
 
-    // make sure all getters are there !
 
-    public static void saveDatabase(HeadQuarter headQuarter, String filepath) {
+    public  void saveDatabase(HeadQuarter headQuarter, String filepath) {
         try (XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(filepath)))) {
             encoder.setPersistenceDelegate(HeadQuarter.class, new DefaultPersistenceDelegate(
                     new String[]{"mediaManager", "uploaderManager"}
                     ));
             encoder.setPersistenceDelegate(MediaManager.class, new DefaultPersistenceDelegate(
-                    new String[]{"uploaderManager","contentList"}
+                    new String[]{"contentList","uploaderManager"}
             ));
             encoder.setPersistenceDelegate(UploaderManager.class, new DefaultPersistenceDelegate(
                     new String[]{"uploaderList"}
@@ -54,13 +54,26 @@ public class SaveDatabaseWithJBP {
         }
     }
 
-    public static HeadQuarter loadHeadquarter(String filePath) {
-        HeadQuarter headQuarter = null;
+    public  HeadQuarter loadHeadquarter(String filePath) {
         try (XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(filePath)))) {
             headQuarter = (HeadQuarter) decoder.readObject();
         } catch (FileNotFoundException e) {
         }
         return headQuarter;
+    }
+
+    public static void main(String[] args) {
+        SaveDatabaseWithJBP saveDatabaseWithJBP = new SaveDatabaseWithJBP();
+        headQuarter.addUploader(new UploaderImpl("Paul"));
+        ArrayList<Tag> tags = new ArrayList<>();
+        tags.add(Tag.News);
+        System.out.println(headQuarter.addAudioContent(headQuarter.getUploader("Paul"),345345,"sdfsdf",345,456,"sdff",tags));
+        saveDatabaseWithJBP.saveDatabase(headQuarter,"test.ser");
+        System.out.println(headQuarter.deleteUploader(headQuarter.getUploader("Paul")));
+       HeadQuarter headQuarter1 = saveDatabaseWithJBP.loadHeadquarter("test.ser");
+        System.out.println(headQuarter1.printList());
+        System.out.println(headQuarter1.getUploader("Paul"));
+
     }
 
 }

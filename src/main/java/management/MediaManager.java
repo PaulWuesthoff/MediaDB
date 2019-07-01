@@ -2,6 +2,7 @@ package management;
 
 import eventBasedCli.observers.IObserver;
 import mediaDB.Content;
+import mediaDB.MediaContent;
 import mediaDB.Tag;
 import uploaderDB.Uploader;
 
@@ -19,14 +20,14 @@ public class MediaManager implements Serializable {
 
 
     public MediaManager() {
-       uploaderManager = new UploaderManager();
+        uploaderManager = new UploaderManager();
         contentList = new ArrayList<>();
         observers = new LinkedList<>();
     }
 
     public MediaManager(List<Content> contentList, UploaderManager uploaderManager) {
-        this.uploaderManager = uploaderManager;
         this.contentList = contentList;
+        this.uploaderManager = uploaderManager;
     }
     public void registerObserver(IObserver observer){
         observers.add(observer);
@@ -50,6 +51,7 @@ public class MediaManager implements Serializable {
     public boolean deleteContent(Content content) {
         boolean executed = contentList.remove(content);
         notifyObservers();
+        storageCounter--;
        return executed;
     }
 
@@ -152,6 +154,25 @@ public class MediaManager implements Serializable {
 
     }
 
+    public Content getOldestContent(){
+
+        Content contentMinimum = null;
+        Date minium;
+        minium = new Date(System.currentTimeMillis() + 1000);
+        Boolean firstIteration = true;
+        for (Content content : contentList) {
+            if(firstIteration){
+                minium = content.getTimestamp();
+                contentMinimum = content;
+                firstIteration = false;
+            }
+           if(content.getTimestamp().before(minium)){
+               minium = content.getTimestamp();
+               contentMinimum = content;
+           }
+        }
+        return contentMinimum;
+    }
 
     public List<Content> getContentList() {
         return contentList;
@@ -160,5 +181,10 @@ public class MediaManager implements Serializable {
     public int getMAXSIZE() {
         return MAXSIZE;
     }
+
+    public UploaderManager getUploaderManager() {
+        return uploaderManager;
+    }
+
 
 }

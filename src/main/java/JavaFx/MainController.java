@@ -1,21 +1,26 @@
 package JavaFx;
 
-import javafx.beans.property.SimpleStringProperty;
+
+import javafx.beans.value.ObservableValue;
+import javafx.beans.value.ObservableValueBase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 import management.HeadQuarter;
 import mediaDB.Content;
-import mediaDB.ContentImpl;
 import mediaDB.Tag;
-import sun.rmi.rmic.iiop.InterfaceType;
 import uploaderDB.Uploader;
 import uploaderDB.UploaderImpl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
+import java.util.function.Predicate;
+
 
 public class MainController {
 
@@ -53,6 +58,8 @@ public class MainController {
     private TableColumn holderColumn;
 
     @FXML
+    private TableColumn dateOfUploadColumn;
+    @FXML
     private TableView<Uploader> uploaderTableView;
 
     @FXML
@@ -66,16 +73,44 @@ public class MainController {
 
     @FXML
     private Button deleteContentButton;
+    @FXML
+    private Button addContentButton;
+
+    @FXML
+    private MenuItem menuItemLoad;
+
+    @FXML
+    private MenuItem menuItemSave;
+
+    @FXML
+    private MenuItem menuItemClose;
+
+    @FXML
+    private MenuItem menuItemShowAll;
+
 
     private HeadQuarter headQuarter;
     private Main main;
 
     private ObservableList<Content> observableContentList;
     private ObservableList<Uploader> observableUploaderList;
-    private ObservableList<ContentImpl> observableContentImplList;
+    private FilteredList<Content> filteredList;
 
     @FXML
     private void initialize() {
+
+        contentColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Content,String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Content,String> param) {
+                return new ObservableValueBase() {
+                    @Override
+                    public Object getValue() {
+                        String className = param.getValue().getClass().getInterfaces()[0].toString();
+                        return className.substring(className.lastIndexOf(".")+1);
+                    }
+                };
+            }
+        });
         addressColumn.setCellValueFactory(new PropertyValueFactory<Content, String>("address"));
         tagsColumn.setCellValueFactory(new PropertyValueFactory<Content, Tag>("tags"));
         widthColumn.setCellValueFactory(new PropertyValueFactory<Content, Integer>("width"));
@@ -85,27 +120,39 @@ public class MainController {
         encodingColumn.setCellValueFactory(new PropertyValueFactory<Content, String>("encoding"));
         lengthColumn.setCellValueFactory(new PropertyValueFactory<Content, Long>("length"));
         holderColumn.setCellValueFactory(new PropertyValueFactory<Content, String>("holder"));
-
+        dateOfUploadColumn.setCellValueFactory(new PropertyValueFactory<Content, Date>("timestamp"));
 
         observableContentList = FXCollections.observableArrayList();
-        mediaDBView.setItems(observableContentList);
         uploaderColumn.setCellValueFactory(new PropertyValueFactory<Uploader, String>("name"));
         observableUploaderList = FXCollections.observableArrayList();
         uploaderTableView.setItems(observableUploaderList);
 
+        filteredList = new FilteredList<>(observableContentList);
+
+        mediaDBView.setItems(observableContentList);
     }
 
     public void lateInit(Main main, HeadQuarter headQuarter) {
         this.main = main;
         this.headQuarter = headQuarter;
         new UploaderViewModel(observableUploaderList, headQuarter.getUploaderManager());
+        // sample input
         headQuarter.addUploader(new UploaderImpl("Paul"));
         headQuarter.addUploader(new UploaderImpl("Julius"));
         ArrayList<Tag> tags = new ArrayList<>();
         tags.add(Tag.News);
         new ContentViewModel(observableContentList, headQuarter.getMediaManager());
-        headQuarter.addAudioContent(headQuarter.getUploader("Julius"), 3445, "ddfg", 345, 345, "sdfdfs", tags);
+        headQuarter.addAudioContent(headQuarter.getUploader("Paul"), 3445, "ddfg", 345, 345, "sdfdfs", tags);
 
+        uploaderTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null) {
+                mediaDBView.setItems(observableContentList);
+            } else {
+                Predicate<Content> equalsUploader = content -> content.getUploader().equals(uploaderTableView.getSelectionModel().getSelectedItem());
+                filteredList.setPredicate(equalsUploader);
+                mediaDBView.setItems(filteredList);
+            }
+        });
 
     }
 
@@ -130,8 +177,9 @@ public class MainController {
             alert.close();
         }
     }
+
     @FXML
-    private void onDeleteContentButton(){
+    private void onDeleteContentButton() {
         Content content = mediaDBView.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(null);
@@ -147,8 +195,17 @@ public class MainController {
     }
 
     @FXML
-    private void onAddContentViewButton(){
+    private void onAddContentViewButton() {
         main.showAddContentView();
+    }
+
+    @FXML
+    private void onMenuItemClose(){
+        System.exit(0);
+    }
+    @FXML
+    private void onMenuItemShowAll(){
+        mediaDBView.setItems(observableContentList);
     }
 
 }
