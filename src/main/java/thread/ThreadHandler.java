@@ -66,6 +66,8 @@ public class ThreadHandler {
         HeadQuarter oldestHeadQuarter = null;
         Content oldestContent = null;
         if (storageList.stream().allMatch(h -> h.getMaxSizeOfDatabase() == h.getMediaList().size())) {
+            System.out.println("Exiting now.. ");
+
             System.exit(0);
         }
 

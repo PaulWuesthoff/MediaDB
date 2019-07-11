@@ -102,13 +102,11 @@ public class UploaderManager implements Serializable {
     private Uploader searchForUploader(String name) {
         String nameUpperCase = formatNameToUpperCase(name);
 
-
         for (Uploader uploader : uploaderList) {
             if (uploader.getName().equals(nameUpperCase)) {
                 return uploader;
             }
         }
-
         return null;
     }
 

@@ -2,10 +2,7 @@ package mediaDB;
 
 
 import uploaderDB.Uploader;
-
-
 import java.util.Collection;
-
 
 public class AudioImpl extends MediaContentImpl implements Audio {
     private int samplingRate;
@@ -16,7 +13,6 @@ public class AudioImpl extends MediaContentImpl implements Audio {
         super(uploader, address, tags, bitrate, length);
         this.samplingRate = samplingRate;
         this.encoding = encoding;
-
     }
 
 

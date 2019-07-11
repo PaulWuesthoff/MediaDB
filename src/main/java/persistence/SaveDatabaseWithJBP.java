@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class SaveDatabaseWithJBP {
 private static HeadQuarter headQuarter = new HeadQuarter();
 
+//todo: Check if everything i need is really saved
 
     public  void saveDatabase(HeadQuarter headQuarter, String filepath) {
         try (XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(filepath)))) {

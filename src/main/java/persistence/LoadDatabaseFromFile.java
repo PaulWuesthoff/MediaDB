@@ -13,10 +13,6 @@ public class LoadDatabaseFromFile {
     private final String fileName = "database.ser";
     private List<Content> contentList;
 
-
-
-
-
     public List<Content> loadWarehouse() {
         try {
             FileInputStream fileInputStream = new FileInputStream(fileName);
