@@ -12,7 +12,7 @@ import java.util.List;
 public class LoadDatabaseFromFile {
     private final String fileName = "database.ser";
     private List<Content> contentList;
-
+//TODO: Rewrite method for testing
     public List<Content> loadWarehouse() {
         try {
             FileInputStream fileInputStream = new FileInputStream(fileName);

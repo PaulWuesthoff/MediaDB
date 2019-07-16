@@ -14,6 +14,7 @@ public class SaveDatabaseToFile {
     public SaveDatabaseToFile(HeadQuarter headQuarter) {
         this.headQuarter = headQuarter;
     }
+    //TODO: Rewrite method for testing
     public boolean saveMediaDatabase(){
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(fileName);
