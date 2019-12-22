@@ -1,0 +1,12 @@
+
+Ksquid:S1948"-Make "contentList" transient or serializable.(˜÷À8ÇŠÌ¤·-
+Xsquid:S1126k"AReplace this if-then-else statement by a single return statement.(™®¡•
+=squid:S1170"!Make this final field static too.(Œ­ÏÌøÿÿÿÿ
+Nsquid:S1948"+Make "observers" transient or serializable.(¼“‹„úÿÿÿÿ8ºµÂƒÁ-
+8squid:S1643z"Use a StringBuilder instead.(ëùÖÖÿÿÿÿÿ
+osquid:S00116"RRename this field "MAXSIZE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ­ÏÌøÿÿÿÿ
+Tsquid:S1172"6Remove this unused method parameter "uploaderManager".(Ö›Š«8êÌÁƒÁ-
+:squid:S1643C"Use a StringBuilder instead.(ùİğÇ8¦ç¨ÊÀ-
+squid:S1192>"qDefine a constant instead of duplicating this literal "The content you are looking for dose not exist! " 4 times.(ùİğÇ8¹ëÊÀ-
+bsquid:S2583k"DChange this condition so that it does not always evaluate to "false"(™®¡•8½®úÀ-
+:squid:S1643S"Use a StringBuilder instead.(ùİğÇ8¹ëÊÀ-

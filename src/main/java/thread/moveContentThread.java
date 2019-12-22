@@ -1,9 +1,9 @@
 package thread;
 
-public class StorageThread3 extends Thread{
+public class moveContentThread extends Thread{
     private ThreadHandler threadHandler;
 
-    public StorageThread3(ThreadHandler threadHandler) {
+    public moveContentThread(ThreadHandler threadHandler) {
         this.threadHandler = threadHandler;
     }
     @Override

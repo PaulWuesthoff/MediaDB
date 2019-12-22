@@ -1,10 +1,6 @@
 package eventBasedCli;
 
 import JavaFx.Main;
-import eventBasedCli.observers.CapacityObserver;
-import eventBasedCli.observers.GetNewTagsObserver;
-import eventBasedCli.observers.GetRemovedTagsObserver;
-import management.EventManager;
 import mediaDB.Tag;
 
 import java.io.BufferedReader;
@@ -19,22 +15,13 @@ public class CommandLineInterface {
     private InputStreamReader reader = new InputStreamReader(System.in);
     private BufferedReader inputReader = new BufferedReader(reader);
     StringTokenizer stringTokenizer;
-    /*private EventManager eventManager;
-    private EventHandler eventHandler;*/
-    private CapacityObserver capacityObserver;
-    private GetNewTagsObserver getNewTagsObserver;
-    private GetRemovedTagsObserver getRemovedTagsObserver;
     private final String USERNOTE = "Notice: You can only add Content to existing Uploader's";
     private final String COULDNOTADDCONTENT = "Could not add the Content, returning to menu";
-    private Main main;
+    private MainCli main;
 
 
-    public CommandLineInterface() {
-        main = new Main();
-        this.capacityObserver = new CapacityObserver(main.getEventManager().getHeadQuarter());
-        this.getNewTagsObserver = new GetNewTagsObserver(main.getEventManager().getHeadQuarter());
-        this.getRemovedTagsObserver = new GetRemovedTagsObserver(main.getEventManager().getHeadQuarter());
-
+    public CommandLineInterface(MainCli main) {
+        this.main = main ;
     }
 
     public void displayCommandLineInterface() {

@@ -1,0 +1,9 @@
+
+psquid:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(äÙ¼äşÿÿÿÿ8ˆÅ†ƒÁ-
+Fsquid:S1148""#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ºùá‚Á-
+[squid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ù‹í€Á-
+Fsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8›™•Á-
+Fsquid:S1148 "#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ºùá‚Á-
+bsquid:S2147!"DCombine this catch with the one at line 31, which has the same body.(ıàÑÎ8ºùá‚Á-
+fsquid:UselessImportCheck	"6Remove this unused import 'java.util.StringTokenizer'.(ÈÄ¬ñşÿÿÿÿ8ºùá‚Á-
+\squid:UselessImportCheck"3Remove this unused import 'management.HeadQuarter'.(÷ÛÂÍıÿÿÿÿ

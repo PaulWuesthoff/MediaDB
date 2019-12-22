@@ -31,7 +31,7 @@ public class UdpServer extends Thread {
 
             packetFromClient = getMsgFromClient();
             String in = new String(packetFromClient.getData(), 0, packetFromClient.getLength());
-            System.out.println("Received message from port :" + socket.getPort() + " " + in);
+            System.out.println("Received message from port :" + packetFromClient.getPort() + " " + in);
             if (in.startsWith("uploader: ")) {
                 sendMsgToClient(packetFromClient, flagHandler.handleUserInteraction(in));
             } else if (in.startsWith("audio: ")) {

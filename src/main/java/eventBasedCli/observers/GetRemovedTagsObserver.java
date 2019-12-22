@@ -17,14 +17,16 @@ public class GetRemovedTagsObserver implements IObserver {
 
     @Override
     public void update() {
-        Collection<Tag> oldTags = tags;
-        Collection<Tag> updatedTags = headQuarter.getUnusedTags();
 
-        updatedTags.removeAll(oldTags);
-        if (tags.size() > headQuarter.getUnusedTags().size()) {
-            System.out.println("currently removed: " + updatedTags);
+        Collection<Tag> oldTags = tags;
+        Collection<Tag> updatedTags = headQuarter.getUsedTags();
+
+
+        if (tags.size() >= updatedTags.size()) {
+            oldTags.removeAll(updatedTags);
+            System.out.println("currently removed: " + oldTags);
         }
-        tags = headQuarter.getUnusedTags();
+        tags = headQuarter.getUsedTags();
     }
 }
 

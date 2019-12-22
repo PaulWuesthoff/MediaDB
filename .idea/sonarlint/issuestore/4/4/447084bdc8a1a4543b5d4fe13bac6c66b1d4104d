@@ -1,0 +1,4 @@
+
+Ssquid:S1481"7Remove this unused "uploaderCollection" local variable.(ÍõùÇøÿÿÿÿ
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Å¢Ô«
+Xsquid:UselessImportCheck"4Remove this unused import 'uploaderDB.UploaderImpl'.(©«ž—

@@ -2,6 +2,9 @@ package JavaFx;
 
 import eventBasedCli.CommandLineInterface;
 import eventBasedCli.EventHandler;
+import eventBasedCli.observers.CapacityObserver;
+import eventBasedCli.observers.GetNewTagsObserver;
+import eventBasedCli.observers.GetRemovedTagsObserver;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,7 +15,6 @@ import management.EventManager;
 import management.HeadQuarter;
 
 import java.io.IOException;
-
 public class Main extends Application {
     private HeadQuarter headQuarter;
     private Stage addUploaderStage;
@@ -23,7 +25,6 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         Main main = new Main();
-       // main.launchCLI();
         launch(args);
     }
 
@@ -32,12 +33,10 @@ public class Main extends Application {
         eventManager = new EventManager();
         eventHandler.linkToEventManager(eventManager);
         eventManager.linkToEventHandler(eventHandler);
+        headQuarter = eventManager.getHeadQuarter();
     }
 
-    private void launchCLI() {
-        CommandLineInterface commandLineInterface = new CommandLineInterface();
-        commandLineInterface.displayCommandLineInterface();
-    }
+
 
 
     public void showMainWindow(Stage stage) {
@@ -92,7 +91,7 @@ public class Main extends Application {
 
     //@Override
     public void start(Stage primaryStage) throws Exception {
-        headQuarter = eventManager.getHeadQuarter();
+        //headQuarter = eventManager.getHeadQuarter();
         showMainWindow(primaryStage);
     }
 

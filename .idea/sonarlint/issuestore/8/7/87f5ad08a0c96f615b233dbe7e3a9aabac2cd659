@@ -1,0 +1,20 @@
+
+[
+squid:S106!"9Replace this use of System.out or System.err by a logger.(®”®°ùÿÿÿÿ8áÌõÖ¿-
+U
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ã³œ	8áÌõÖ¿-
+[
+squid:S106)"9Replace this use of System.out or System.err by a logger.(¶®éÓøÿÿÿÿ8áÌõÖ¿-
+V
+squid:S106_"9Replace this use of System.out or System.err by a logger.(óÏ©8áÌõÖ¿-
+Msquid:S2093]"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8áÌõÖ¿-
+Asquid:S1148K"#Use a logger to log this exception.(Ç’Çê8áÌõÖ¿-
+Fsquid:S1148V"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8áÌõÖ¿-
+[
+squid:S106D"9Replace this use of System.out or System.err by a logger.(«×¢øûÿÿÿÿ8áÌõÖ¿-
+[
+squid:S106d"9Replace this use of System.out or System.err by a logger.(Á¶ãÿÿÿÿÿ8áÌõÖ¿-
+Msquid:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8áÌõÖ¿-
+Asquid:S1148j"#Use a logger to log this exception.(Ç’Çê8áÌõÖ¿-
+Xsquid:S1161":Add the "@Override" annotation above this method signature(“–ış8áÌõÖ¿-
+psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(“–ış8áÌõÖ¿-

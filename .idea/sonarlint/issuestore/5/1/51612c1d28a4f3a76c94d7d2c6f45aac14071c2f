@@ -1,0 +1,17 @@
+
+Fsquid:S1148]"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8äÚ«Ø¿-
+ƒsquid:S1217t"`Call the method Thread.start() to execute the content of the run() method in a dedicated thread.(¹û£¾øÿÿÿÿ8äÚ«Ø¿-
+Xsquid:S1161":Add the "@Override" annotation above this method signature(“–ış8äÚ«Ø¿-
+Fsquid:S1148P"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8äÚ«Ø¿-
+:squid:S1643?"Use a StringBuilder instead.(‹Õ¾ë8äÚ«Ø¿-
+dsquid:UselessImportCheck"4Remove this unused import 'management.EventManager'.(—á¬ßûÿÿÿÿ8äÚ«Ø¿-
+Jsquid:S1068"'Remove this unused "buf" private field.(ºğ†›øÿÿÿÿ8äÚ«Ø¿-
+dsquid:S1126l"AReplace this if-then-else statement by a single return statement.(×ûªÛüÿÿÿÿ8äÚ«Ø¿-
+psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(“–ış8äÚ«Ø¿-
+V
+squid:S106d"9Replace this use of System.out or System.err by a logger.(×Ÿ›–8äÚ«Ø¿-
+Fsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8äÚ«Ø¿-
+gsquid:UnusedPrivateMethodk"6Remove this unused private "checkForErrorFlag" method.(¿İáÒÿÿÿÿÿ8äÚ«Ø¿-
+U
+squid:S106""9Replace this use of System.out or System.err by a logger.(‹ò'8äÚ«Ø¿-
+bsquid:UselessImportCheck"7Remove this unused import 'eventBasedCli.EventHandler'.(„Ëì8äÚ«Ø¿-

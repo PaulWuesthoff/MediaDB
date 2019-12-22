@@ -1,0 +1,12 @@
+
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Å¢Ô«
+{squid:UselessImportCheck"KRemove this unused import 'eventBasedCli.observers.GetRemovedTagsObserver'.(ë¸†Èùÿÿÿÿ8ï÷—ÿÀ-
+wsquid:UselessImportCheck"GRemove this unused import 'eventBasedCli.observers.GetNewTagsObserver'.(íññžÿÿÿÿÿ8ï÷—ÿÀ-
+Fsquid:S11484"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8€ÀæÌÀ-
+Fsquid:S1148X"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8€ÀæÌÀ-
+osquid:UselessImportCheck"?Remove this unused import 'eventBasedCli.CommandLineInterface'.(Î¹—Öúÿÿÿÿ8ï÷—ÿÀ-
+nsquid:CommentedOutCodeLine^"<This block of commented-out lines of code should be removed.(Ì§Õûÿÿÿÿ8†Ÿ’ÍÀ-
+Fsquid:S1148E"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8€ÀæÌÀ-
+[squid:S1854"8Remove this useless assignment to local variable "main".(²ÄˆÝÿÿÿÿÿ8ï÷—ÿÀ-
+psquid:UselessImportCheck"ERemove this unused import 'eventBasedCli.observers.CapacityObserver'.(ÐõÞœ8ï÷—ÿÀ-
+Lsquid:S1481")Remove this unused "main" local variable.(²ÄˆÝÿÿÿÿÿ8ï÷—ÿÀ-

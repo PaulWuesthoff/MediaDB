@@ -1,0 +1,23 @@
+
+V
+squid:S106n"9Replace this use of System.out or System.err by a logger.(ù˜ˆ8ú·„Ø¿-
+V
+squid:S106A"9Replace this use of System.out or System.err by a logger.(ÈÖò8ú·„Ø¿-
+V
+squid:S106l"9Replace this use of System.out or System.err by a logger.(ô¤„å8ú·„Ø¿-
+[
+squid:S106,"9Replace this use of System.out or System.err by a logger.(ğ«ºşøÿÿÿÿ8ú·„Ø¿-
+gsquid:S20953"DUse try-with-resources or close this "Socket" in a "finally" clause.(ÎôÕ×úÿÿÿÿ8ú·„Ø¿-
+V
+squid:S106:"9Replace this use of System.out or System.err by a logger.(Áã·8ú·„Ø¿-
+[squid:S1197"8Move the array designator from the variable to the type.(¡şÏÖøÿÿÿÿ8ÍİğÔ¿-
+V
+squid:S106„"9Replace this use of System.out or System.err by a logger.(Äş!8û·„Ø¿-
+Xsquid:S11412"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8û·„Ø¿-
+usquid:S3776)"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(ªÿãÑûÿÿÿÿ8û·„Ø¿-
+Gsquid:S1148†"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8û·„Ø¿-
+W
+squid:S106€"9Replace this use of System.out or System.err by a logger.(·‰şç8ú·„Ø¿-
+Fsquid:S1148y"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8û·„Ø¿-
+V
+squid:S1067"9Replace this use of System.out or System.err by a logger.(ÑØšˆ8ú·„Ø¿-

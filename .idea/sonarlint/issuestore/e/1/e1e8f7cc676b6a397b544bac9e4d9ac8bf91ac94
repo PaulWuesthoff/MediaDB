@@ -1,0 +1,10 @@
+
+Ysquid:S00107x"<Method has 8 parameters, which is greater than 7 authorized.(µÛ¤ùÿÿÿÿ
+Ssquid:S1191"5Use classes from the Java API instead of Sun classes.(÷—•–8ïµæÍÀ-
+Usquid:S1135N"2Complete the task associated to this TODO comment.(˜ÊÛ±ıÿÿÿÿ8éıÍÀ-
+msquid:UselessImportCheck"BRemove this unused import 'com.sun.org.apache.regexp.internal.RE'.(÷—•–8ïµæÍÀ-
+_squid:UselessImportCheck	"4Remove this unused import 'uploaderDB.UploaderImpl'.(©«—8øõÙ¿-
+Tsquid:S00107O"<Method has 8 parameters, which is greater than 7 authorized.(é­¼à
+Zsquid:S00107"<Method has 9 parameters, which is greater than 7 authorized.(£Û„Äùÿÿÿÿ
+Vsquid:S00107¡"=Method has 10 parameters, which is greater than 7 authorized.(¸Š¦
+Ssquid:S00107d"<Method has 9 parameters, which is greater than 7 authorized.(Ï½çt

@@ -11,10 +11,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ThreadHandler {
     private List<HeadQuarter> storageList;
-//    private HeadQuarter storageThread;
-//    private HeadQuarter storageThread2;
-//    private HeadQuarter storageThread3;
-
 
     public ThreadHandler() {
         storageList = new ArrayList<>();
@@ -23,17 +19,10 @@ public class ThreadHandler {
             headQuarter.addUploader(new UploaderImpl("Paul"));
             storageList.add(headQuarter);
         }
-//        this.storageThread = new HeadQuarter();
-//        this.storageThread2 = new HeadQuarter();
-//        this.storageThread3 = new HeadQuarter();
-//        storageThread.addUploader(new UploaderImpl("Paul"));
-//        storageThread2.addUploader(new UploaderImpl("Paul"));
-//        storageThread3.addUploader(new UploaderImpl("Paul"));
-
-
     }
 
     public synchronized void store() {
+        int size = 0;
         String address = generateString();
         Collection<Tag> tags = generateRandomTag();
         int bitrate = ThreadLocalRandom.current().nextInt(100, 200);
@@ -91,16 +80,6 @@ public class ThreadHandler {
 
         }
 
-//        if (!storageThread2.addMediaContent(content)) {
-//            if (!storageThread3.addMediaContent(content)) {
-//                System.out.println("Storage full, existing now ! ");
-//                System.out.println(storageThread.printList());
-//                System.out.println(storageThread2.printList());
-//                System.out.println(storageThread3.printList());
-//                System.exit(0);
-//            }
-//
-//        }
         System.out.println("Moving content to next database !");
         notify();
     }

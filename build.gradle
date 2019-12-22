@@ -1,5 +1,8 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+
 }
 
 sourceSets {
@@ -20,11 +23,15 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.5.0-M1'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '2.25.1'
     testCompile group: 'org.opentest4j', name: 'opentest4j', version: '1.1.1'
     compile group:'org.apiguardian',name:'apiguardian-api',version: '1.0.0'
 
+}
+
+javafx {
+    version = "13"
+    modules = [ 'javafx.controls','javafx.fxml'  ]
 }

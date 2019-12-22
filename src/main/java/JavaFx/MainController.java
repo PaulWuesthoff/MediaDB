@@ -1,14 +1,20 @@
 package JavaFx;
 
 
+import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
 import javafx.beans.value.ObservableValueBase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import management.HeadQuarter;
 import mediaDB.Content;
@@ -96,6 +102,7 @@ public class MainController {
     private ObservableList<Uploader> observableUploaderList;
     private FilteredList<Content> filteredList;
 
+
     @FXML
     private void initialize() {
 
@@ -130,6 +137,7 @@ public class MainController {
         filteredList = new FilteredList<>(observableContentList);
 
         mediaDBView.setItems(observableContentList);
+
     }
 
     public void lateInit(Main main, HeadQuarter headQuarter) {
@@ -154,12 +162,22 @@ public class MainController {
             }
         });
 
+
     }
 
     @FXML
     private void onAddUploader() {
         main.showAddUploaderWindow();
     }
+    @FXML
+    private void onDragDetected(MouseEvent event){
+      if(mediaDBView.getSelectionModel().getSelectedCells() == null){
+          event.consume();
+          return;
+      }
+
+    }
+
 
     @FXML
     private void onDeleteUploaderButton() {

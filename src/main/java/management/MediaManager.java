@@ -2,7 +2,6 @@ package management;
 
 import eventBasedCli.observers.IObserver;
 import mediaDB.Content;
-import mediaDB.MediaContent;
 import mediaDB.Tag;
 import uploaderDB.Uploader;
 
@@ -15,30 +14,32 @@ public class MediaManager implements Serializable {
     private List<Content> contentList;
     private int storageCounter;
     private final int MAXSIZE = 10;
-    private UploaderManager uploaderManager;
     private Collection<IObserver> observers;
 
 
     public MediaManager() {
-        uploaderManager = new UploaderManager();
         contentList = new ArrayList<>();
         observers = new LinkedList<>();
     }
 
     public MediaManager(List<Content> contentList, UploaderManager uploaderManager) {
         this.contentList = contentList;
-        this.uploaderManager = uploaderManager;
     }
-    public void registerObserver(IObserver observer){
-        observers.add(observer);
+
+    public boolean registerObserver(IObserver observer) {
+        return observers.add(observer);
     }
-    private void notifyObservers(){
-        for(IObserver observer : observers){
+
+    private void notifyObservers() {
+        for (IObserver observer : observers) {
             observer.update();
         }
     }
 
     public boolean addContent(Content content) {
+        if(content == null){
+            return false;
+        }
         if (checkContent(content)) {
             addContentToArray(content);
             notifyObservers();
@@ -52,14 +53,20 @@ public class MediaManager implements Serializable {
         boolean executed = contentList.remove(content);
         notifyObservers();
         storageCounter--;
-       return executed;
+        return executed;
     }
 
     public String getTimestamp(Content content) {
         String answer = "";
-        if (content == null) {
+        if (content == null || contentList.isEmpty()) {
             answer += "The content you are looking for dose not exist! ";
             return answer;
+        }
+        for (Content content1 : contentList) {
+            if (!contentList.contains(content1)) {
+                answer += "The content you are looking for dose not exist! ";
+                return answer;
+            }
         }
         answer = content.getTimestamp().toString();
         return answer;
@@ -67,9 +74,15 @@ public class MediaManager implements Serializable {
 
     public String getAddress(Content content) {
         String answer = "";
-        if (content == null) {
+        if (content == null || contentList.isEmpty()) {
             answer += "The content you are looking for dose not exist! ";
             return answer;
+        }
+        for (Content content1 : contentList) {
+            if (!contentList.contains(content1)) {
+                answer += "The content you are looking for dose not exist! ";
+                return answer;
+            }
         }
         answer = content.getAddress();
         return answer;
@@ -82,6 +95,12 @@ public class MediaManager implements Serializable {
     }
 
     private boolean checkContent(Content content) {
+        if(content.getUploader() == null){
+            return false;
+        }
+        if(content.getTags() == null){
+            return false;
+        }
         if (storageCounter == MAXSIZE) {
             return false;
         }
@@ -95,10 +114,10 @@ public class MediaManager implements Serializable {
     public String printList() {
         String contentString = "";
         int position = 0;
+        if (contentList.isEmpty()) {
+            return "The List is Empty";
+        }
         for (Content content : contentList) {
-            if (contentList.isEmpty()) {
-                contentString += "The List is Empty";
-            }
             position++;
             contentString += " " + position + ". " + content.toString();
         }
@@ -132,6 +151,10 @@ public class MediaManager implements Serializable {
     }
 
     public int getAmountOfUploadsForOneUploader(Uploader uploader) {
+
+        if (uploader == null) {
+            return 0;
+        }
         int amount = 0;
         for (Content content : contentList) {
             if (content.getUploader().equals(uploader)) {
@@ -143,6 +166,9 @@ public class MediaManager implements Serializable {
     }
 
     public boolean deleteContentForOneUploader(Uploader uploader) {
+        if (uploader == null) {
+            return false;
+        }
         ArrayList<Content> contentsToDelete = new ArrayList<>();
         for (Content content : contentList) {
             if (content.getUploader().getName().equals(uploader.getName())) {
@@ -154,22 +180,22 @@ public class MediaManager implements Serializable {
 
     }
 
-    public Content getOldestContent(){
+    public Content getOldestContent() {
 
         Content contentMinimum = null;
         Date minium;
         minium = new Date(System.currentTimeMillis() + 1000);
         Boolean firstIteration = true;
         for (Content content : contentList) {
-            if(firstIteration){
+            if (firstIteration) {
                 minium = content.getTimestamp();
                 contentMinimum = content;
                 firstIteration = false;
             }
-           if(content.getTimestamp().before(minium)){
-               minium = content.getTimestamp();
-               contentMinimum = content;
-           }
+            if (content.getTimestamp().before(minium)) {
+                minium = content.getTimestamp();
+                contentMinimum = content;
+            }
         }
         return contentMinimum;
     }
@@ -182,9 +208,7 @@ public class MediaManager implements Serializable {
         return MAXSIZE;
     }
 
-    public UploaderManager getUploaderManager() {
-        return uploaderManager;
+    public void setContentList(List<Content> contentList) {
+        this.contentList = contentList;
     }
-
-
 }

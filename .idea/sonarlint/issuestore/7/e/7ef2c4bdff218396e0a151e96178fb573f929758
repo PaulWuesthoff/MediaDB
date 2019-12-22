@@ -1,0 +1,37 @@
+
+?squid:S1604$"(Make this anonymous inner class a lambda(üğ’ã
+Zsquid:S1126–"BReplace this if-then-else statement by a single method invocation.(ÈÑ”ã
+?squid:S1604}"(Make this anonymous inner class a lambda(™ê±Ÿ
+_$squid:AssignmentInSubExpressionCheck¼".Extract the assignment out of this expression.(è¶ºğ
+?squid:S1604"(Make this anonymous inner class a lambda(ı¾¸¶
+^squid:S1126d"BReplace this if-then-else statement by a single method invocation.(¬Ûîƒúÿÿÿÿ
+Ysquid:S1126"BReplace this if-then-else statement by a single method invocation.(¤Ş¬á
+Esquid:S1604“"(Make this anonymous inner class a lambda(÷«ñÍıÿÿÿÿ
+Dsquid:S1604k"(Make this anonymous inner class a lambda(Òæ½üÿÿÿÿ
+lsquid:S00100ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úÚ„Úùÿÿÿÿ
+lsquid:S00100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µê£ãüÿÿÿÿ
+?squid:S16049"(Make this anonymous inner class a lambda(Ñ´ã
+Ysquid:S1126F"BReplace this if-then-else statement by a single method invocation.(¢ô÷Ä
+^squid:S1126'"BReplace this if-then-else statement by a single method invocation.(òß¤…şÿÿÿÿ
+Xsquid:S1126Z"BReplace this if-then-else statement by a single method invocation.(”¥ú
+gsquid:S00100ı"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü…¶Ì
+?squid:S1604."(Make this anonymous inner class a lambda(ñî±î
+Dsquid:S1604w"(Make this anonymous inner class a lambda(ùíĞÅıÿÿÿÿ
+^squid:S11261"BReplace this if-then-else statement by a single method invocation.(‰Í÷âøÿÿÿÿ
+gsquid:S00100Œ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Ğ‰Ø
+Dsquid:S1604a"(Make this anonymous inner class a lambda(ĞŒ·¡ıÿÿÿÿ
+Ysquid:S1126<"BReplace this if-then-else statement by a single method invocation.(Ôâèô
+Dsquid:S1604W"(Make this anonymous inner class a lambda(Íéœ–úÿÿÿÿ
+nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(ö„¹îúÿÿÿÿ
+lsquid:S00100–"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó£äØúÿÿÿÿ
+^squid:S1126P"BReplace this if-then-else statement by a single method invocation.(ãÆ¨€úÿÿÿÿ
+@squid:S1148°"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Dsquid:S1604C"(Make this anonymous inner class a lambda(•Â‘òùÿÿÿÿ
+lsquid:S00100‡"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÚğ¶şÿÿÿÿ
+_squid:S1126†"BReplace this if-then-else statement by a single method invocation.(æù·¾ÿÿÿÿÿ
+lsquid:S00100ô"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠíıÒøÿÿÿÿ
+Dsquid:S1604q"(Make this anonymous inner class a lambda(©ãÆíşÿÿÿÿ
+?squid:S1604ƒ"(Make this anonymous inner class a lambda(„¯‹
+?squid:S1604M"(Make this anonymous inner class a lambda(†¯°Ö
+Esquid:S1604"(Make this anonymous inner class a lambda(Úıúÿÿÿÿ
+gsquid:S00100‘"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ŒÒÊ

@@ -1,0 +1,23 @@
+
+[
+squid:S106#"9Replace this use of System.out or System.err by a logger.(“ù¼ˆÿÿÿÿÿ8Îž¤ÿÀ-
+T
+squid:S106S"9Replace this use of System.out or System.err by a logger.(Æçõçøÿÿÿÿ
+]squid:S2142)"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+;squid:S2119N"Save and re-use this "Random".(¼ÝÅf8¨¬“ý·-
+?squid:S11485"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+Psquid:S22743":Remove this call to "wait" or move it into a "while" loop.(ç£ŠM
+T
+squid:S106%"9Replace this use of System.out or System.err by a logger.(‚ØÓˆýÿÿÿÿ
+Lsquid:S2446&"0"notify" may not wake up the appropriate thread.(óÄ£¶øÿÿÿÿ
+?squid:S1148*"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+4squid:S2119d"Save and re-use this "Random".(¼ÝÅf
+rsquid:S2259L"OA "NullPointerException" could be thrown; "oldestHeadQuarter" is nullable here.(ÆñÍ×úÿÿÿÿ8£ãëü·-
+;squid:S2119"Save and re-use this "Random".(¼ÝÅf8õ³ˆü·-
+V
+squid:S106:"9Replace this use of System.out or System.err by a logger.(™Š«Ø8õ®Çç»-
+Gsquid:S1481")Remove this unused "size" local variable.(ŠÝýÞ8ÎÌ¸ÿÀ-
+Msquid:S00108O")Either remove or fill this block of code.(¹—ŒÒüÿÿÿÿ8ÿõ–ý·-
+]squid:S21424"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+Psquid:S2274(":Remove this call to "wait" or move it into a "while" loop.(ç£ŠM
+Lsquid:S2446T"0"notify" may not wake up the appropriate thread.(óÄ£¶øÿÿÿÿ

@@ -1,0 +1,15 @@
+
+Dsquid:S1604D"(Make this anonymous inner class a lambda(›¯êüÿÿÿÿ
+?squid:S16042"(Make this anonymous inner class a lambda(ëÒ˜ä
+Dsquid:S1604&"(Make this anonymous inner class a lambda(½‹¹üÿÿÿÿ
+Usquid:S00107»"<Method has 8 parameters, which is greater than 7 authorized.(ì‚ñŞ
+Vsquid:S00107ä"=Method has 10 parameters, which is greater than 7 authorized.(Ùé§À
+?squid:S16048"(Make this anonymous inner class a lambda(ı³û¤
+Zsquid:S00107Ğ"<Method has 8 parameters, which is greater than 7 authorized.(ßÁÿÿÿÿÿ
+wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(æ¦ÿÒúÿÿÿÿ
+Zsquid:S00107Ú"<Method has 9 parameters, which is greater than 7 authorized.(®è·™üÿÿÿÿ
+Dsquid:S1604>"(Make this anonymous inner class a lambda(ì½ßÜøÿÿÿÿ
+Dsquid:S1604,"(Make this anonymous inner class a lambda(õıêùÿÿÿÿ
+\squid:UselessImportCheck"3Remove this unused import 'management.HeadQuarter'.(÷ÛÂÍıÿÿÿÿ
+Csquid:S1452ï"&Remove usage of generic wildcard type.(÷¿ñÉüÿÿÿÿ
+Usquid:S00107Å"<Method has 9 parameters, which is greater than 7 authorized.(¼ÉÀ

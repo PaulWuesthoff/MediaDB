@@ -1,0 +1,21 @@
+
+T
+squid:S106K"9Replace this use of System.out or System.err by a logger.(å Úèøÿÿÿÿ
+csquid:S1192""GDefine a constant instead of duplicating this literal "length" 6 times.(ËşëÙøÿÿÿÿ
+esquid:S1192""IDefine a constant instead of duplicating this literal "uploader" 6 times.(ËşëÙøÿÿÿÿ
+isquid:S1192""MDefine a constant instead of duplicating this literal "samplingRate" 4 times.(ËşëÙøÿÿÿÿ
+csquid:S1192%"GDefine a constant instead of duplicating this literal "height" 4 times.(°¤…òÿÿÿÿÿ
+dsquid:S1192""HDefine a constant instead of duplicating this literal "bitrate" 6 times.(ËşëÙøÿÿÿÿ
+dsquid:S1192""HDefine a constant instead of duplicating this literal "address" 6 times.(ËşëÙøÿÿÿÿ
+?squid:S11485"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+O
+squid:S106F"9Replace this use of System.out or System.err by a logger.(¢©à
+Msquid:S2696;"6Make the enclosing method "static" or remove this set.(‚µÑ÷
+Asquid:S00108<")Either remove or fill this block of code.(‹±ÃÆ
+esquid:S1192""IDefine a constant instead of duplicating this literal "encoding" 6 times.(ËşëÙøÿÿÿÿ
+T
+squid:S106H"9Replace this use of System.out or System.err by a logger.(ãõ¾¸ûÿÿÿÿ
+bsquid:S1192%"FDefine a constant instead of duplicating this literal "width" 4 times.(°¤…òÿÿÿÿÿ
+N
+squid:S106J"9Replace this use of System.out or System.err by a logger.(–ùös
+csquid:S1192+"GDefine a constant instead of duplicating this literal "holder" 3 times.(¡íåÉÿÿÿÿÿ

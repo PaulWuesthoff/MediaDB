@@ -21,8 +21,6 @@ public class FlagHandler {
         eventManager = new EventManager();
         eventManager.linkToEventHandler(eventHandler);
         eventHandler.linkToEventManager(eventManager);
-        System.out.println(eventHandler);
-        System.out.println(eventManager);
     }
 
     public String handleFlag(String flag) {

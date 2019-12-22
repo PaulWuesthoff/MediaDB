@@ -23,8 +23,6 @@ public class HeadQuarter implements IObservable {
         this.mediaManager = new MediaManager();
         this.uploaderManager = new UploaderManager();
         this.observers = new ArrayList<>();
-
-
     }
 
     public HeadQuarter(MediaManager mediaManager, UploaderManager uploaderManager) {
@@ -41,7 +39,6 @@ public class HeadQuarter implements IObservable {
         if (mediaManager.getAmountOfUploadsForOneUploader(uploader) == 0) {
             return uploaderManager.deleteUploader(uploader);
         } else {
-            notifyObservers();
             return uploaderManager.deleteUploader(uploader) && mediaManager.deleteContentForOneUploader(uploader);
         }
     }
@@ -52,8 +49,9 @@ public class HeadQuarter implements IObservable {
 
 
     public boolean deleteContent(Content content) {
+        boolean deleted = mediaManager.deleteContent(content);
         notifyObservers();
-        return mediaManager.deleteContent(content);
+        return deleted;
     }
 
     public boolean addUploader(Uploader uploader) {
@@ -66,19 +64,17 @@ public class HeadQuarter implements IObservable {
 
     public boolean addAudioContent(Uploader uploader, int samplingRate, String encoding, int bitrate, long length,
                                    String address, Collection<Tag> tags) {
-
+        boolean saved = false;
         if (checkIfUploaderAlreadyExist(uploader)) {
             AudioImpl audioImp = new AudioImpl(uploader, address, tags, bitrate, length, samplingRate, encoding);
-            return mediaManager.addContent(audioImp);
-        }
-        if (!uploaderManager.addUploader(uploader)) {
-            return false;
-        }
+            saved = mediaManager.addContent(audioImp);
 
-        AudioImpl audioImp = new AudioImpl(uploader, address, tags, bitrate, length, samplingRate, encoding);
-        return mediaManager.addContent(audioImp);
+        }
+        notifyObservers();
+        return saved;
     }
 
+    //TODO: rewrite add Methods like Audio
     public boolean addVideoContent(Uploader uploader, String address, Collection<Tag> tags,
                                    int bitrate, long length, int width, int height, String encoding) {
 
@@ -92,6 +88,7 @@ public class HeadQuarter implements IObservable {
         }
 
         VideoImpl videoImp = new VideoImpl(uploader, address, tags, bitrate, length, width, height, encoding);
+        notifyObservers();
         return mediaManager.addContent(videoImp);
     }
 
@@ -115,6 +112,7 @@ public class HeadQuarter implements IObservable {
 
         AudioVideoImpl audioVideoImpl = new AudioVideoImpl(uploader, address, tags,
                 bitrate, length, samplingRate, encoding, width, height);
+        notifyObservers();
         return mediaManager.addContent(audioVideoImpl);
     }
 
@@ -135,6 +133,7 @@ public class HeadQuarter implements IObservable {
 
         LicensedAudioImpl licensedAudioImp = new LicensedAudioImpl(uploader, address, tags,
                 bitrate, length, samplingRate, encoding, holder);
+        notifyObservers();
         return mediaManager.addContent(licensedAudioImp);
     }
 
@@ -154,6 +153,7 @@ public class HeadQuarter implements IObservable {
 
         LicensedVideoImpl licensedVideoImp = new LicensedVideoImpl(uploader, address, tags,
                 bitrate, length, width, height, encoding, holder);
+        notifyObservers();
         return mediaManager.addContent(licensedVideoImp);
     }
 
@@ -173,6 +173,7 @@ public class HeadQuarter implements IObservable {
 
         LicensedAudioVideoImpl licensedAudioVideoImp = new LicensedAudioVideoImpl(uploader, address, tags,
                 bitrate, length, samplingRate, encoding, width, height, holder);
+        notifyObservers();
         return mediaManager.addContent(licensedAudioVideoImp);
     }
 
@@ -245,40 +246,10 @@ public class HeadQuarter implements IObservable {
         return mediaManager;
     }
 
-    public static void main(String[] args) {
-        HeadQuarter headQuarter = new HeadQuarter();
-        ArrayList<Tag> tags = new ArrayList<>();
-        tags.add(Tag.News);
-//        ArrayList<Tag> hd = new ArrayList<>();
-//        hd.add(Tag.Animal);
-        System.out.println(headQuarter.addUploader(new UploaderImpl("Paul")));
-//        System.out.println(headQuarter.deleteUploader(headQuarter.getUploader("Paul")));
-        System.out.println(headQuarter.addAudioContent(headQuarter.getUploader("Paul"), 34, "MP8", 34674, 98854, "Database.xx", tags));
-        headQuarter.addAudioVideoContent(headQuarter.getUploader("Paul"), "Jojo", tags, 34, 343, 23, "lol", 2, 4);
-//        headQuarter.addLicensedAudio(headQuarter.getUploader("Paul"), "Hah", tags, 32, 4232, 534, "Encoding", "Me");
-//        headQuarter.addLicensedAudioVideo(headQuarter.getUploader("Paul"), "Ja", hd, 23, 43453, 2, 4, 3, "sdf", "You");
-//        headQuarter.addLicensedVideo(headQuarter.getUploader("Paul"), "oxuc", tags, 23, 23, 45, 654, "Ead", "wasd");
-//        headQuarter.addVideoContent(headQuarter.getUploader("Paul"), "aefh", tags, 234234, 234324, 23, 23, "Rough");
-//          System.out.println(headQuarter.mediaManager.getAmountOfUploadsForOneUploader(headQuarter.getUploader("Paul")));
-
-        System.out.println(headQuarter.printList());
-//        System.out.println(headQuarter.deleteUploader(HeadQuarter.uploaderManager.getUploader("Paul")));
-//        HeadQuarter.mediaManager.printList();
-//        System.out.println(HeadQuarter.mediaManager.getTimestamp(HeadQuarter.mediaManager.getContentList().get(0)));
-//        System.out.println(HeadQuarter.mediaManager.getAddress(HeadQuarter.mediaManager.getContentList().get(0)));
-//        System.out.println(HeadQuarter.mediaManager.deleteContent(HeadQuarter.mediaManager.getContentList().get(0)));
-//        System.out.println(headQuarter.mediaManager.getContentsByInterfaceType(Audio.class));
-//        System.out.println(headQuarter.mediaManager.getUsedTags());
-//        System.out.println("<--------------------------------->");
-//        System.out.println(HeadQuarter.mediaManager.getUnusedTags());
-//        System.out.println(HeadQuarter.mediaManager.getAmountOfUploadsForOneUploader(HeadQuarter.uploaderManager.getUploader("Paul")));
-//        System.out.println("Saving....");
-//         saveDatabaseToFile.saveMediaDatabase();
-//        System.out.println("loading...");
-//        loadDatabaseFromFile.loadWarehouse();
-//        SaveDatabaseWithJBP.saveDatabase(headQuarter,"hq.xml");
-
+    public List<IObserver> getObservers() {
+        return observers;
     }
-
-
+    public void setMediaList(List<Content> contentList){
+        mediaManager.setContentList(contentList);
+    }
 }

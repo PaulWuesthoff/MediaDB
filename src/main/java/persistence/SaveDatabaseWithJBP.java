@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class SaveDatabaseWithJBP {
 private static HeadQuarter headQuarter = new HeadQuarter();
 
-//todo: Check if everything i need is really saved
 
     public  void saveDatabase(HeadQuarter headQuarter, String filepath) {
         try (XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(filepath)))) {
@@ -23,7 +22,7 @@ private static HeadQuarter headQuarter = new HeadQuarter();
                     new String[]{"mediaManager", "uploaderManager"}
                     ));
             encoder.setPersistenceDelegate(MediaManager.class, new DefaultPersistenceDelegate(
-                    new String[]{"contentList","uploaderManager"}
+                    new String[]{"contentList"}
             ));
             encoder.setPersistenceDelegate(UploaderManager.class, new DefaultPersistenceDelegate(
                     new String[]{"uploaderList"}

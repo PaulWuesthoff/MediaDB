@@ -11,7 +11,7 @@ public class GetNewTagsObserver implements IObserver {
 
     public GetNewTagsObserver(HeadQuarter headQuarter) {
         this.headQuarter = headQuarter;
-        this.tags = headQuarter.getUnusedTags();
+        this.tags = headQuarter.getUsedTags();
         this.headQuarter.register(this);
     }
 
@@ -20,11 +20,11 @@ public class GetNewTagsObserver implements IObserver {
     public void update() {
         Collection<Tag> oldTags = tags;
         Collection<Tag> updatedTags = headQuarter.getUsedTags();
-
         updatedTags.removeAll(oldTags);
-       if(tags.size() < headQuarter.getUnusedTags().size()){
+
+       if(1 <= updatedTags.size()){
            System.out.println("currently added: " + updatedTags);
        }
-       tags = headQuarter.getUnusedTags();
+       tags = headQuarter.getUsedTags();
     }
 }

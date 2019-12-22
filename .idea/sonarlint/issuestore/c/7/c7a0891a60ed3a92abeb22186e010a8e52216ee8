@@ -1,0 +1,6 @@
+
+]squid:S1126Y"AReplace this if-then-else statement by a single return statement.(²üÆüÿÿÿÿ
+Dsquid:S1948"-Make "observables" transient or serializable.(›ÔÚ
+dsquid:UselessImportCheck"@Remove this unused import 'eventBasedCli.observers.IObservable'.(şÎÑ²
+Jsquid:S1948".Make "uploaderList" transient or serializable.(æÈŸıÿÿÿÿ
+~squid:S1488`"gImmediately return this expression instead of assigning it to the temporary variable "nameToUpperCase".(™½ç’

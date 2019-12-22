@@ -41,6 +41,9 @@ public class UploaderManager implements Serializable {
     }
 
     public boolean addUploader(Uploader uploader) {
+        if(uploader == null){
+            return false;
+        }
         if (!checkName(uploader.getName())) {
             return false;
         }
@@ -55,6 +58,9 @@ public class UploaderManager implements Serializable {
     }
 
     public boolean deleteUploader(Uploader uploader) {
+        if(uploader == null){
+            return false;
+        }
         if (!checkName(uploader.getName())) {
             return false;
         }
